@@ -1,0 +1,24 @@
+*::selection {
+  background: #fff;
+  color: #1f79b9;
+}
+
+body {
+  background-image: linear-gradient(to bottom, #195189 0%, #051931 130%);
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+main {
+  display: flex;
+  gap: .5rem;
+  padding: 2rem;
+  min-height: 100vh;
+  @media (max-width:800px) {
+    padding: 1rem;
+  }
+}
+
+a {
+  padding: .7rem;
+}
