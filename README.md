@@ -55,11 +55,7 @@ _Dificuldades e explicação da solução_
 **Front-end Junior**
 Contato: **matheusmvg@hotmail.com**
 
-Repositório (GitHub):
-Aplicação (Deploy):
-Aplicação (Screenshot): https://i.imgur.com/7VFFt3n.png
-Banco de dados (Screenshot do localStorage):
-Testes unitários (Screenshot do Cypress): https://i.imgur.com/6KWmojy.png
+Aplicação (Deploy): 
 
 ## Tecnologias utilizadas
 
@@ -95,3 +91,14 @@ A segunda dificuldade notável foi com o **framework de testes**, eu nunca tinha
 Em resumo, acredito que o desafio foi uma **excelente oportunidade** para demonstrar minhas habilidades com frontend, usando **React** e tecnologias relacionadas, desde a criação do **design** à implementação de todas **funcionalidades** exigidas, solucionando os problemas e automatizando **testes**. Encarei os desafios propostos como oportunidades de aprendizado, dando meu melhor para garantir uma **excelente experiência** no uso da aplicação.
 
 Agradeço pela oportunidade e estou à disposição para qualquer informação ou esclarecimento adicional.
+
+<div align="center">
+  <img src="https://i.imgur.com/51ppMMr.png" width="70%" />
+  <img src="https://i.imgur.com/zlY35jN.png" width="50%" />
+  
+  (estrutura banco de dados - mockAPI)
+
+  <img src="https://i.imgur.com/6KWmojy.png" width="70%" />
+
+  (testes unitários - Cypress)
+</div>
