@@ -52,7 +52,9 @@ Você pode utilizar o framework de sua preferência.
 _Dificuldades e explicação da solução_
 
 **Matheus Vinícius Gesser**
+
 **Front-end Junior**
+
 Contato: **matheusmvg@hotmail.com**
 
 Aplicação (Deploy): https://contato-seguro.vercel.app/
