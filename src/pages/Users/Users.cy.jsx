@@ -66,13 +66,13 @@ describe("<Users />", () => {
   });
 
   it("edita usuário corretamente e atualiza na tabela", () => {
-    // Pressiona o botão para editar o último usuário
-    cy.get("table tr:last-child td:last-child button:nth-child(1)").click();
+    // Pressiona o botão para editar o primeiro usuário
+    cy.get("table tr:first-child td:last-child button:nth-child(1)").click();
     cy.get("input#name").clear().type("Novo Nome");
     cy.get("input[type='submit']").click();
     cy.wait(500);
-    // Checa se o último registro da tabela CONTÉM o nome 'Novo Nome'
-    cy.get("table tr:last-child td:nth-child(1)").should(
+    // Checa se o primeiro registro da tabela CONTÉM o nome 'Novo Nome'
+    cy.get("table tr:first-child td:nth-child(1)").should(
       "have.text",
       "Novo Nome"
     );
