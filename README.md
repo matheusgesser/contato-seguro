@@ -57,7 +57,7 @@ _Dificuldades e explicação da solução_
 
 Contato: **matheusmvg@hotmail.com**
 
-Aplicação (Deploy): https://contato-seguro.vercel.app/
+Aplicação (Deploy): https://contato-seguro.netlify.app/
 
 ## Tecnologias utilizadas
 
@@ -72,7 +72,7 @@ Segui uma estrutura de layout de **dashboard**, com uma sidebar/menu lateral par
 
 Implementei as quatro operações **CRUD**, nas entidades Usuário e Empresa, que dispensam instrução pois são bem **intuitivas** na utilização.
 
-Utilizei **mockAPI** para armazenar as informações, pois funciona como um backend conectado a um banco de dados, permitindo que eu me concentrasse no **frontend** e apenas em implementar as requisições, que será a parte analisada nesse teste. O mockapi foi solução viável que simula precisamente uma API no backend, porém como é um serviço gratuito, exige um pouco de paciência no uso da aplicação pois ele tem um limite de requisições em determinado período e podem ocorrer bugs por conta desse limite.
+Utilizei **mockAPI** para armazenar as informações, pois funciona como um backend conectado a um banco de dados, permitindo que eu me concentrasse no **frontend** e apenas em implementar as requisições, que será a parte analisada nesse teste. O mockapi foi solução viável que simula precisamente uma API no backend, porém como é um serviço gratuito, exige um pouco de paciência no uso da aplicação pois ele tem um limite de requisições em determinado período e podem ocorrer bugs unicamente por conta desse limite.
 
 É possível **filtrar** os dados através do input no topo de cada página, selecionando o campo e digitando para buscar por uma informação.
 
