@@ -1,14 +1,9 @@
 import { useEffect, useState } from "react";
-import {
-  ButtonAdd,
-  Filter,
-  CompanyModal,
-  EditIcon,
-  DeleteIcon,
-} from "../../components";
+import { Filter, ButtonAdd, EditIcon, DeleteIcon } from "../../components";
 import { Container } from "../../styles/components/Container";
-import { Table } from "../../styles/components/Table";
 import { Title, Wrapper } from "../../styles/components/PageHeader";
+import { Table } from "../../styles/components/Table";
+import { CompanyModal } from "./CompanyModal";
 import CompanyAPI from "../../services/companies";
 import UserAPI from "../../services/users";
 

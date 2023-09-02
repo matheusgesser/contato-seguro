@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import LogoContatoSeguro from "../../assets/logo.png";
+import LogoContatoSeguro from "../../assets/images/logo.png";
 import { Wrapper, Logo, Links } from "./styles";
 import { Link, useLocation } from "react-router-dom";
 import { UserIcon, CompanyIcon } from "../../components";

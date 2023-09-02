@@ -6,13 +6,12 @@ import {
   Title,
   Button,
   Item,
-} from "../../styles/components/Modal";
-import { RemoveIcon } from "../Icons/RemoveIcon";
+} from "../../../styles/components/Modal";
+import { RemoveIcon } from "../../../components";
 import { useForm } from "react-hook-form";
 import InputMask from "react-input-mask";
-import { useEffect, useState } from "react";
-import UserAPI from "../../services/users";
-import CompanyAPI from "../../services/companies";
+import UserAPI from "../../../services/users";
+import CompanyAPI from "../../../services/companies";
 
 export function UserModal({
   updateUsers,

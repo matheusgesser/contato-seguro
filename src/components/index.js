@@ -1,16 +1,17 @@
-export { Sidebar } from './Sidebar'
-export { Filter } from './Filter'
-export { ButtonAdd } from './ButtonAdd'
-export { UserModal } from './UserModal'
-export { CompanyModal } from './CompanyModal'
+// Shared components
+export { Sidebar } from "./Sidebar";
+export { Filter } from "./Filter";
+export { ButtonAdd } from "./ButtonAdd";
 
-export { UserIcon } from './Icons/UserIcon'
-export { CompanyIcon } from './Icons/CompanyIcon'
-export { AddIcon } from './Icons/AddIcon'
-export { EditIcon } from './Icons/EditIcon'
-export { DeleteIcon } from './Icons/DeleteIcon'
-export { RemoveIcon } from './Icons/RemoveIcon'
-export { MenuIcon } from './Icons/MenuIcon'
+// Icons
+export { UserIcon } from "./Icons/UserIcon";
+export { CompanyIcon } from "./Icons/CompanyIcon";
+export { AddIcon } from "./Icons/AddIcon";
+export { EditIcon } from "./Icons/EditIcon";
+export { DeleteIcon } from "./Icons/DeleteIcon";
+export { RemoveIcon } from "./Icons/RemoveIcon";
+export { MenuIcon } from "./Icons/MenuIcon";
 
-export { HomeUserIcon } from './Icons/HomeUserIcon'
-export { HomeCompanyIcon } from './Icons/HomeCompanyIcon'
+// Icons (home page)
+export { HomeUserIcon } from "./Icons/HomeUserIcon";
+export { HomeCompanyIcon } from "./Icons/HomeCompanyIcon";
