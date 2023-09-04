@@ -107,7 +107,7 @@ Agradeço pela oportunidade e estou à disposição para qualquer informação o
   <img src="https://i.imgur.com/51ppMMr.png" width="70%" />
   <img src="https://i.imgur.com/zlY35jN.png" width="50%" />
   
-  ![image](https://github.com/matheusgesser/contato-seguro/assets/117914140/6c02e6cc-268d-4570-a4b1-5ef7b14ff76d)
+  ![image](https://github.com/matheusgesser/contato-seguro/assets/117914140/e63f43a6-880f-4816-b495-53f1de5ec008)
 
   ![image](https://github.com/matheusgesser/contato-seguro/assets/117914140/da62a97c-5490-4917-93fc-f3095b179abc)
   
