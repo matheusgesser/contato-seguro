@@ -63,11 +63,13 @@ Backend (API): https://github.com/matheusgesser/rest-api-cyclic
 ## Tecnologias utilizadas
 
 **React**, **React-Router**, **Styled Components**, **Cypress**
+
 React-Hook-Form, React-Input-Mask, nanoid, Cyclic (API e backend com AWS DynamoDB)
 
 ## Execute localmente
 
 `npm install`
+
 `npm run dev`
 
 ## Considerações
