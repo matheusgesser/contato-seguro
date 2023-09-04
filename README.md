@@ -59,7 +59,7 @@ Contato: **matheusmvg@hotmail.com**
 
 Aplicação (Deploy): https://contato-seguro.netlify.app/
 
-Backend (API): https://github.com/matheusgesser/rest-api-cyclic
+Backend (API): https://github.com/matheusgesser/contato-seguro-api
 
 ## Tecnologias utilizadas
 
