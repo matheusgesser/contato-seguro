@@ -58,6 +58,7 @@ _Dificuldades e explicação da solução_
 Contato: **matheusmvg@hotmail.com**
 
 Aplicação (Deploy): https://contato-seguro.netlify.app/
+
 Backend (API): https://github.com/matheusgesser/rest-api-cyclic
 
 ## Tecnologias utilizadas
@@ -107,6 +108,8 @@ Agradeço pela oportunidade e estou à disposição para qualquer informação o
   <img src="https://i.imgur.com/zlY35jN.png" width="50%" />
   
   ![image](https://github.com/matheusgesser/contato-seguro/assets/117914140/04524e7a-0720-4723-bec2-8a405f8c9761)
+
+  ![image](https://github.com/matheusgesser/contato-seguro/assets/117914140/da62a97c-5490-4917-93fc-f3095b179abc)
   
   (estrutura banco de dados - Cyclic)
 
