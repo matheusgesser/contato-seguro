@@ -20,11 +20,25 @@ export function Companies() {
   }, []);
 
   async function updateCompanies() {
-    setCompanies(await CompanyAPI.getAll());
+    let companies = await CompanyAPI.getAll();
+    // Ordena empresas por data de criação
+    companies = companies.sort(function (a, b) {
+      var c = new Date(a.created);
+      var d = new Date(b.created);
+      return c - d;
+    });
+    setCompanies(companies);
   }
 
   async function updateUsers() {
-    setUsers(await UserAPI.getAll());
+    let users = await UserAPI.getAll();
+    // Ordena usuários por data de criação
+    users = users.sort(function (a, b) {
+      var c = new Date(a.created);
+      var d = new Date(b.created);
+      return c - d;
+    });
+    setUsers(users);
   }
 
   let filteredData = companies.filter((value) =>
@@ -60,18 +74,11 @@ export function Companies() {
     await CompanyAPI.delete(id);
     updateCompanies();
     // Remove a empresa de todos usuários
-    setTimeout(async () => {
-      users.forEach(async (user, index) => {
-        // Remove de um a um a cada 200ms para não sobrecarregar a API (erro too many requests)
-        setTimeout(async () => {
-          await UserAPI.removeCompany(user.id, id);
-        }, index * 200);
-      });
-      updateUsers();
-    }, 500);
+    users.forEach(async (user) => {
+      await UserAPI.removeCompany(user.id, id);
+    });
+    updateUsers();
   }
-
-  // Atualiza a tabela com os dados do local storage
 
   return (
     <>

@@ -51,7 +51,7 @@ export function CompanyModal({
     }
     // Se possuir um id, edita um dado, senão apenas insere
     if (values.id) {
-      await CompanyAPI.update(values.id, data);
+      await CompanyAPI.update({ ...data, id: values.id });
     } else {
       await CompanyAPI.create(data);
     }
@@ -60,26 +60,20 @@ export function CompanyModal({
     updateCompanies();
   }
 
-  async function handleAssignUser(e) {
+  async function handleAssignUser(userID) {
     let companyID = values.id;
-    let userID = e.target.value;
     await CompanyAPI.addUser(companyID, userID);
     updateCompanies();
-    setTimeout(async () => {
-      await UserAPI.addCompany(userID, companyID);
-      updateUsers();
-    }, 1000);
+    await UserAPI.addCompany(userID, companyID);
+    updateUsers();
   }
 
-  async function handleUnassignUser(id) {
+  async function handleUnassignUser(userID) {
     let companyID = values.id;
-    let userID = id;
     await CompanyAPI.removeUser(companyID, userID);
     updateCompanies();
-    setTimeout(async () => {
-      await UserAPI.removeCompany(userID, companyID);
-      updateUsers();
-    }, 1000);
+    await UserAPI.removeCompany(userID, companyID);
+    updateUsers();
   }
 
   return (
@@ -129,7 +123,7 @@ export function CompanyModal({
           </section>
           <select
             id="users"
-            onChange={handleAssignUser}
+            onChange={(e) => handleAssignUser(e.target.value)}
             disabled={values.id && unassignedUsers ? false : true}
           >
             {unassignedUsers.length > 0 && <option value={""} />}

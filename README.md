@@ -58,11 +58,17 @@ _Dificuldades e explicação da solução_
 Contato: **matheusmvg@hotmail.com**
 
 Aplicação (Deploy): https://contato-seguro.netlify.app/
+Backend (API): https://github.com/matheusgesser/rest-api-cyclic
 
 ## Tecnologias utilizadas
 
 **React**, **React-Router**, **Styled Components**, **Cypress**
-React-Hook-Form, React-Input-Mask, MockAPI (backend)
+React-Hook-Form, React-Input-Mask, nanoid, Cyclic (API e backend com AWS DynamoDB)
+
+## Execute localmente
+
+`npm install`
+`npm run dev`
 
 ## Considerações
 
@@ -72,7 +78,7 @@ Segui uma estrutura de layout de **dashboard**, com uma sidebar/menu lateral par
 
 Implementei as quatro operações **CRUD**, nas entidades Usuário e Empresa, que dispensam instrução pois são bem **intuitivas** na utilização.
 
-Utilizei **mockAPI** para armazenar as informações, pois funciona como um backend conectado a um banco de dados, permitindo que eu me concentrasse no **frontend** e apenas em implementar as requisições, que será a parte analisada nesse teste. O mockapi foi solução viável que simula precisamente uma API no backend, porém como é um serviço gratuito, exige um pouco de paciência no uso da aplicação pois ele tem um limite de requisições em determinado período e podem ocorrer bugs unicamente por conta desse limite.
+Utilizei o **Cyclic** como backend/API para armazenar as informações, criando uma API com Express e NodeJS que se conecta com a SDK deles ligada à AWS DynamoDB permitindo que eu me concentrasse no **frontend** e apenas em implementar as requisições, que será a parte analisada nesse teste. A utilização do Cyclic sua SDK com AWS foi a melhor solução para criação e hospedagem simples de uma API.
 
 É possível **filtrar** os dados através do input no topo de cada página, selecionando o campo e digitando para buscar por uma informação.
 
@@ -82,9 +88,9 @@ Implementei testes unitários (**adição**, **visualização**, **edição**, *
 
 ## Dificuldades
 
-No geral, consegui resolver os problemas que surgiam de maneira **fluida**, mas colocaria duas dificuldades como principais: **contornar parcialmente o limite de requisições do mockAPI (API backend gratuito)** e a **escolha do framework de testes**.
+No geral, consegui resolver os problemas que surgiam de maneira **fluida**, mas colocaria duas dificuldades como principais: **escolha de ferramenta de backend/API** e a **escolha do framework de testes**.
 
-A primeira dificuldade foi mais especificamente na funcionalidade de adicionar/excluir um objeto, onde não bastava apenas adicionar/excluir o objeto da sua entidade, mas também alterar todos outros objetos que ele fazia parte na outra entidade (por exemplo, quando exclui-se um usuário, ele tem que ser removido de todas empresas que ele estava vinculado, e vice-versa), e não foi uma tarefa tão fácil implementar esse relacionamento pois simplesmente chamar todas as requisições ao mesmo tempo atingiria o limite e causaria erros, mas consegui contornar a situação definindo um tempo de espera para cada chamada encapsulada em classes na pasta services.
+A primeira dificuldade aconteceu pois inicialmente pensei em utilizar localStorage, que além de ser muito difícil implementar o relacionamento entre as entidades, onde não bastava apenas adicionar/excluir o objeto da sua entidade, mas também alterar todos outros objetos que ele fazia parte na outra entidade, ainda não seria possível simular um backend com requisições assíncronas como pedido na descrição do teste. Então tentei utiizar o mockAPI, mas é um serviço gratuito com limite de requisições, o que quebrava a aplicação caso tentasse fazer operações em sequencia rapidamente, então migrei novamente para a Cyclic, utilizando express com a SDK deles que utiliza AWS DynamoDB para criar as rotas CRUD e contornar todos problemas.
 
 A segunda dificuldade notável foi com o **framework de testes**, eu nunca tinha utilizado um, então primeiramente tentei utilizar _Jest_ com _testing-library_, mas tive muitos problemas na configuração dos mocks de assets, pacotes npm que precisaram ser ignorados executando um comando específico para o teste rodar, além de que não achei muito conveniente a seleção de elementos que o _Jest_ propõe (_getByRole_, _queryByLabelText_). Mas quando decidi pesquisar sobre o **Cypress** decidi utilizá-lo, e a implementação dos **testes unitários** foi bem mais **conveniente** e **fluida**.
 
@@ -98,9 +104,12 @@ Agradeço pela oportunidade e estou à disposição para qualquer informação o
   <img src="https://i.imgur.com/51ppMMr.png" width="70%" />
   <img src="https://i.imgur.com/zlY35jN.png" width="50%" />
   
-  (estrutura banco de dados - mockAPI)
+  ![image](https://github.com/matheusgesser/contato-seguro/assets/117914140/04524e7a-0720-4723-bec2-8a405f8c9761)
+  
+  (estrutura banco de dados - Cyclic)
 
   <img src="https://i.imgur.com/6KWmojy.png" width="70%" />
 
-  (testes unitários - Cypress)
+(testes unitários - Cypress)
+
 </div>

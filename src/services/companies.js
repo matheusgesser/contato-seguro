@@ -1,4 +1,6 @@
-const url = "https://64ecf6c5f9b2b70f2bfb2d4b.mockapi.io/companies/";
+import { nanoid } from "nanoid";
+
+const url = "https://busy-pink-beaver-sock.cyclic.cloud/companies/";
 
 export default class CompanyAPI {
   static get = getCompany;
@@ -12,81 +14,54 @@ export default class CompanyAPI {
 
 async function getCompany(id) {
   const response = await fetch(url + id).then((response) => response.json());
-  return response;
+  return response.props;
 }
 
 async function getCompanies() {
-  let response = await fetch(url);
-  response =
-    response.status == 429
-      ? alert("Too Many Requests (mockapi free tier)")
-      : await response.json();
-  return response || [];
+  return await fetch(url).then((response) => response.json());
 }
 
 async function createCompany(data) {
-  const response = await fetch(url, {
+  const id = nanoid(8).toString();
+  await fetch(url + id, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ ...data, users: [] }),
-  }).then((response) => response.json());
-  return response;
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ ...data, users: [], id: id }),
+  });
 }
 
-async function updateCompany(id, data) {
-  const response = await fetch(url + id, {
-    method: "PUT",
+async function updateCompany(data) {
+  await fetch(url + data.id, {
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
   }).then((response) => response.json());
-  return response;
 }
 
 async function deleteCompany(id) {
-  const deletedUser = await fetch(url + id, {
+  await fetch(url + id, {
     method: "DELETE",
-  }).then((response) => response.json());
-  return deletedUser;
+  });
 }
 
 async function addUser(companyID, userID) {
-  const companyInfo = await fetch(url + companyID).then((response) =>
-    response.json()
-  );
+  const companyInfo = await getCompany(companyID);
+  companyInfo.users.push(userID);
 
-  const body = {
-    users: [...companyInfo.users, userID],
-  };
-
-  await fetch(url + companyID, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(body),
-  }).then((response) => response.json());
+  // Atualiza apenas as informações da empresa, deixando o restante que é controlado pelo banco de dados (updated, created)
+  const { address, cnpj, id, name, users } = companyInfo;
+  const companyData = { address, cnpj, id, name, users };
+  await updateCompany(companyData);
 }
 
 async function removeUser(companyID, userID) {
-  const companyInfo = await fetch(url + companyID).then((response) =>
-    response.json()
-  );
+  const companyInfo = await getCompany(companyID);
+  companyInfo.users = companyInfo.users.filter((user) => user != userID);
 
-  const body = {
-    users: companyInfo.users.filter((user) => user != userID),
-  };
-
-  return await fetch(url + companyID, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(body),
-  }).then((response) => response.json());
+  // Atualiza apenas as informações da empresa, deixando o restante que é controlado pelo banco de dados (updated, created)
+  const { address, cnpj, id, name, users } = companyInfo;
+  const companyData = { address, cnpj, id, name, users };
+  await updateCompany(companyData);
 }
-
-// const newUser = await User.create({ nome: "Gesser", email: "gesser@email.com" })

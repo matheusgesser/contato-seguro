@@ -20,11 +20,25 @@ export function Users() {
   }, []);
 
   async function updateUsers() {
-    setUsers(await UserAPI.getAll());
+    let users = await UserAPI.getAll();
+    // Ordena usuários por data de criação
+    users = users.sort(function (a, b) {
+      var c = new Date(a.created);
+      var d = new Date(b.created);
+      return c - d;
+    });
+    setUsers(users);
   }
 
   async function updateCompanies() {
-    setCompanies(await CompanyAPI.getAll());
+    let companies = await CompanyAPI.getAll();
+    // Ordena empresas por data de criação
+    companies = companies.sort(function (a, b) {
+      var c = new Date(a.created);
+      var d = new Date(b.created);
+      return c - d;
+    });
+    setCompanies(companies);
   }
 
   let filteredData = users.filter((value) =>
@@ -60,15 +74,10 @@ export function Users() {
     await UserAPI.delete(id);
     updateUsers();
     // Remove o usuário de todas empresas
-    setTimeout(async () => {
-      companies.forEach(async (company, index) => {
-        // Remove de um a um a cada 200ms para não sobrecarregar a API (erro too many requests)
-        setTimeout(async () => {
-          await CompanyAPI.removeUser(company.id, id);
-        }, index * 200);
-      });
-      updateCompanies();
-    }, 500);
+    companies.forEach(async (company) => {
+      await CompanyAPI.removeUser(company.id, id);
+    });
+    updateCompanies();
   }
 
   return (
